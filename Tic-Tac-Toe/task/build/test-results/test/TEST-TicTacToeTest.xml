@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="TicTacToeTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-07-15T13:09:03" hostname="DESKTOP-UCJ37A3" time="1.068">
+  <properties/>
+  <testcase name="start" classname="TicTacToeTest" time="1.068"/>
+  <system-out><![CDATA[?[1;31m
+Start test 1?[0m
+X O X
+O X O
+X X O
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
