@@ -8,7 +8,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         
         System.out.print("Enter cells: ");
-        String input = scanner.nextLine();
+        String input = scanner.nextLine().replace("_", " ");
         
         char[][] row = new char[3][3];
 
@@ -22,12 +22,80 @@ public class Main {
             }
         }
 
+        printFullField(row);
+        
+        System.out.print("Enter the coordinates: ");
+        
+        boolean check = scanner.hasNextInt();
+        
+        int coordX;
+        int coordY; 
+        
+        for(;;) {
+            if (!scanner.hasNextInt()) {
+                System.out.println("You should enter numbers!");
+                System.out.print("Enter the coordinates: ");
+                scanner.next();
+                continue;
+            }
+
+            coordX = scanner.nextInt();
+            coordY = scanner.nextInt();
+
+            if (coordX < 0 || coordY < 0 || coordX > 3 || coordY > 3) {
+                System.out.println("Coordinates should be from 1 to 3!");
+                System.out.print("Enter the coordinates: ");
+                coordX = scanner.nextInt();
+                coordY = scanner.nextInt();
+            } 
+            break;
+        }
+        
+
+        
+        int xPos = position(coordY);
+        int yPos = coordX - 1;
+
+        while (occupied(xPos, yPos, row)) {
+            System.out.println("This cell is occupied! Choose another one!");
+            System.out.print("Enter the coordinates: ");
+            coordX = scanner.nextInt();
+            coordY = scanner.nextInt();
+            xPos = position(coordY);
+            yPos = coordX - 1;
+        }
+
+        row[xPos][yPos] = 'X';
+        printFullField(row);
+        //state(row, input);
+    }
+
+    public static boolean occupied(int x, int y, char[][] row) {
+        return row[x][y] != ' ';
+    }
+
+    public static int position(int y) {
+        int row = 0;
+        switch (y) {
+            case 3:
+                row = 0;
+                break;
+            case 2:
+                row = 1;
+                break;
+            case 1:
+                row = 2;
+                break;
+        }
+        return row;
+    }
+
+    public static void printFullField(char[][] row) {
         System.out.println("---------");
         printField(row[0]);
         printField(row[1]);
         printField(row[2]);
         System.out.println("---------");
-        state(row, input);
     }
 
     public static void printField(char[] row) {
@@ -95,7 +163,7 @@ public class Main {
         boolean x = check(row, 'X');
         boolean o = check(row, 'O');
         
-        boolean empty = input.contains("_");
+        boolean empty = input.contains(" ");
         
         if (!countChar(input) || x == true && o == true) {
             System.out.println("Impossible");

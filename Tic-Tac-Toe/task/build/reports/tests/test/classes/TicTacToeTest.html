@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">1.525s</div>
+<div class="counter">1.027s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,7 +79,7 @@
 </thead>
 <tr>
 <td class="success">start</td>
-<td class="success">1.525s</td>
+<td class="success">1.027s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -89,76 +89,438 @@
 <span class="code">
 <pre>?[1;31m
 Start test 1?[0m
-Enter cells: &gt; XXXOO__O_
+Enter cells: &gt; _XXOO_OX_
+---------
+|   X X |
+| O O   |
+| O X   |
+---------
+Enter the coordinates: &gt; 1 1
+This cell is occupied! Choose another one!
+Enter the coordinates: &gt; 1 2
+This cell is occupied! Choose another one!
+Enter the coordinates: &gt; 1 3
 ---------
 | X X X |
-| O O _ |
-| _ O _ |
+| O O   |
+| O X   |
 ---------
-X wins
 ?[1;31m
 Start test 2?[0m
-Enter cells: &gt; XOXOXOXXO
+Enter cells: &gt; _XXOO_OX_
 ---------
-| X O X |
-| O X O |
-| X X O |
+|   X X |
+| O O   |
+| O X   |
 ---------
-X wins
+Enter the coordinates: &gt; 4 1
+Coordinates should be from 1 to 3!
+Enter the coordinates: &gt; 1 2
+This cell is occupied! Choose another one!
+Enter the coordinates: &gt; 1 3
+---------
+| X X X |
+| O O   |
+| O X   |
+---------
 ?[1;31m
 Start test 3?[0m
-Enter cells: &gt; XOOOXOXXO
+Enter cells: &gt; _XXOO_OX_
 ---------
-| X O O |
-| O X O |
-| X X O |
+|   X X |
+| O O   |
+| O X   |
 ---------
-O wins
+Enter the coordinates: &gt; 1 3
+---------
+| X X X |
+| O O   |
+| O X   |
+---------
 ?[1;31m
 Start test 4?[0m
-Enter cells: &gt; XOXOOXXXO
+Enter cells: &gt; _XXOO_OX_
 ---------
-| X O X |
-| O O X |
-| X X O |
+|   X X |
+| O O   |
+| O X   |
 ---------
-Draw
+Enter the coordinates: &gt; 4 3
+Coordinates should be from 1 to 3!
+Enter the coordinates: &gt; 2 1
+This cell is occupied! Choose another one!
+Enter the coordinates: &gt; 2 2
+This cell is occupied! Choose another one!
+Enter the coordinates: &gt; 2 3
+This cell is occupied! Choose another one!
+Enter the coordinates: &gt; 3 1
+---------
+|   X X |
+| O O   |
+| O X X |
+---------
 ?[1;31m
 Start test 5?[0m
-Enter cells: &gt; XO_OOX_X_
+Enter cells: &gt; _XXOO_OX_
 ---------
-| X O _ |
-| O O X |
-| _ X _ |
+|   X X |
+| O O   |
+| O X   |
 ---------
-Game not finished
+Enter the coordinates: &gt; 2 2
+This cell is occupied! Choose another one!
+Enter the coordinates: &gt; 2 3
+This cell is occupied! Choose another one!
+Enter the coordinates: &gt; 3 1
+---------
+|   X X |
+| O O   |
+| O X X |
+---------
 ?[1;31m
 Start test 6?[0m
-Enter cells: &gt; XO_XO_XOX
+Enter cells: &gt; _XXOO_OX_
 ---------
-| X O _ |
-| X O _ |
-| X O X |
+|   X X |
+| O O   |
+| O X   |
 ---------
-Impossible
+Enter the coordinates: &gt; 4 5
+Coordinates should be from 1 to 3!
+Enter the coordinates: &gt; 2 3
+This cell is occupied! Choose another one!
+Enter the coordinates: &gt; 3 1
+---------
+|   X X |
+| O O   |
+| O X X |
+---------
 ?[1;31m
 Start test 7?[0m
-Enter cells: &gt; _O_X__X_X
+Enter cells: &gt; _XXOO_OX_
 ---------
-| _ O _ |
-| X _ _ |
-| X _ X |
+|   X X |
+| O O   |
+| O X   |
 ---------
-Impossible
+Enter the coordinates: &gt; 3 1
+---------
+|   X X |
+| O O   |
+| O X X |
+---------
 ?[1;31m
 Start test 8?[0m
-Enter cells: &gt; _OOOO_X_X
+Enter cells: &gt; _XXOO_OX_
 ---------
-| _ O O |
-| O O _ |
-| X _ X |
+|   X X |
+| O O   |
+| O X   |
 ---------
-Impossible
+Enter the coordinates: &gt; 4 7
+Coordinates should be from 1 to 3!
+Enter the coordinates: &gt; 3 2
+---------
+|   X X |
+| O O X |
+| O X   |
+---------
+?[1;31m
+Start test 9?[0m
+Enter cells: &gt; _XXOO_OX_
+---------
+|   X X |
+| O O   |
+| O X   |
+---------
+Enter the coordinates: &gt; 3 3
+This cell is occupied! Choose another one!
+Enter the coordinates: &gt; 1 1
+This cell is occupied! Choose another one!
+Enter the coordinates: &gt; 1 2
+This cell is occupied! Choose another one!
+Enter the coordinates: &gt; 1 3
+---------
+| X X X |
+| O O   |
+| O X   |
+---------
+?[1;31m
+Start test 10?[0m
+Enter cells: &gt; _________
+---------
+|       |
+|       |
+|       |
+---------
+Enter the coordinates: &gt; 4 9
+Coordinates should be from 1 to 3!
+Enter the coordinates: &gt; 1 1
+---------
+|       |
+|       |
+| X     |
+---------
+?[1;31m
+Start test 11?[0m
+Enter cells: &gt; _________
+---------
+|       |
+|       |
+|       |
+---------
+Enter the coordinates: &gt; 1 2
+---------
+|       |
+| X     |
+|       |
+---------
+?[1;31m
+Start test 12?[0m
+Enter cells: &gt; _________
+---------
+|       |
+|       |
+|       |
+---------
+Enter the coordinates: &gt; 4 11
+Coordinates should be from 1 to 3!
+Enter the coordinates: &gt; 1 3
+---------
+| X     |
+|       |
+|       |
+---------
+?[1;31m
+Start test 13?[0m
+Enter cells: &gt; _________
+---------
+|       |
+|       |
+|       |
+---------
+Enter the coordinates: &gt; 2 1
+---------
+|       |
+|       |
+|   X   |
+---------
+?[1;31m
+Start test 14?[0m
+Enter cells: &gt; _________
+---------
+|       |
+|       |
+|       |
+---------
+Enter the coordinates: &gt; 4 13
+Coordinates should be from 1 to 3!
+Enter the coordinates: &gt; 2 2
+---------
+|       |
+|   X   |
+|       |
+---------
+?[1;31m
+Start test 15?[0m
+Enter cells: &gt; _________
+---------
+|       |
+|       |
+|       |
+---------
+Enter the coordinates: &gt; 2 3
+---------
+|   X   |
+|       |
+|       |
+---------
+?[1;31m
+Start test 16?[0m
+Enter cells: &gt; _________
+---------
+|       |
+|       |
+|       |
+---------
+Enter the coordinates: &gt; 4 15
+Coordinates should be from 1 to 3!
+Enter the coordinates: &gt; 3 1
+---------
+|       |
+|       |
+|     X |
+---------
+?[1;31m
+Start test 17?[0m
+Enter cells: &gt; _________
+---------
+|       |
+|       |
+|       |
+---------
+Enter the coordinates: &gt; 3 2
+---------
+|       |
+|     X |
+|       |
+---------
+?[1;31m
+Start test 18?[0m
+Enter cells: &gt; _________
+---------
+|       |
+|       |
+|       |
+---------
+Enter the coordinates: &gt; 4 17
+Coordinates should be from 1 to 3!
+Enter the coordinates: &gt; 3 3
+---------
+|     X |
+|       |
+|       |
+---------
+?[1;31m
+Start test 19?[0m
+Enter cells: &gt; X_X_O____
+---------
+| X   X |
+|   O   |
+|       |
+---------
+Enter the coordinates: &gt; 1 1
+---------
+| X   X |
+|   O   |
+| X     |
+---------
+?[1;31m
+Start test 20?[0m
+Enter cells: &gt; X_X_O____
+---------
+| X   X |
+|   O   |
+|       |
+---------
+Enter the coordinates: &gt; 4 19
+Coordinates should be from 1 to 3!
+Enter the coordinates: &gt; 1 2
+---------
+| X   X |
+| X O   |
+|       |
+---------
+?[1;31m
+Start test 21?[0m
+Enter cells: &gt; X_X_O____
+---------
+| X   X |
+|   O   |
+|       |
+---------
+Enter the coordinates: &gt; 1 3
+This cell is occupied! Choose another one!
+Enter the coordinates: &gt; 2 1
+---------
+| X   X |
+|   O   |
+|   X   |
+---------
+?[1;31m
+Start test 22?[0m
+Enter cells: &gt; X_X_O____
+---------
+| X   X |
+|   O   |
+|       |
+---------
+Enter the coordinates: &gt; 4 21
+Coordinates should be from 1 to 3!
+Enter the coordinates: &gt; 2 1
+---------
+| X   X |
+|   O   |
+|   X   |
+---------
+?[1;31m
+Start test 23?[0m
+Enter cells: &gt; X_X_O____
+---------
+| X   X |
+|   O   |
+|       |
+---------
+Enter the coordinates: &gt; 2 2
+This cell is occupied! Choose another one!
+Enter the coordinates: &gt; 2 3
+---------
+| X X X |
+|   O   |
+|       |
+---------
+?[1;31m
+Start test 24?[0m
+Enter cells: &gt; X_X_O____
+---------
+| X   X |
+|   O   |
+|       |
+---------
+Enter the coordinates: &gt; 4 23
+Coordinates should be from 1 to 3!
+Enter the coordinates: &gt; 2 3
+---------
+| X X X |
+|   O   |
+|       |
+---------
+?[1;31m
+Start test 25?[0m
+Enter cells: &gt; X_X_O____
+---------
+| X   X |
+|   O   |
+|       |
+---------
+Enter the coordinates: &gt; 3 1
+---------
+| X   X |
+|   O   |
+|     X |
+---------
+?[1;31m
+Start test 26?[0m
+Enter cells: &gt; X_X_O____
+---------
+| X   X |
+|   O   |
+|       |
+---------
+Enter the coordinates: &gt; 4 25
+Coordinates should be from 1 to 3!
+Enter the coordinates: &gt; 3 2
+---------
+| X   X |
+|   O X |
+|       |
+---------
+?[1;31m
+Start test 27?[0m
+Enter cells: &gt; X_X_O____
+---------
+| X   X |
+|   O   |
+|       |
+---------
+Enter the coordinates: &gt; 3 3
+This cell is occupied! Choose another one!
+Enter the coordinates: &gt; 1 1
+---------
+| X   X |
+|   O   |
+| X     |
+---------
 </pre>
 </span>
 </div>
@@ -170,7 +532,7 @@ Impossible
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 5.3.1</a> at Aug 3, 2020, 7:37:04 PM</p>
+<a href="http://www.gradle.org">Gradle 5.3.1</a> at Aug 5, 2020, 3:33:56 PM</p>
 </div>
 </div>
 </body>
