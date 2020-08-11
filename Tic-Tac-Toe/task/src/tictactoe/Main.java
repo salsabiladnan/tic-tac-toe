@@ -3,71 +3,63 @@ import java.util.*;
 import java.lang.Math;
 
 public class Main {
+    static Scanner scanner = new Scanner(System.in);
+    static char[][] row = new char[3][3];
+    static String res = "";
     public static void main(String[] args) {
-        // write your code here
-        Scanner scanner = new Scanner(System.in);
-        
-        System.out.print("Enter cells: ");
-        String input = scanner.nextLine().replace("_", " ");
-        
-        char[][] row = new char[3][3];
-
-        for (int i = 0; i < input.length(); i++) {
-            if (i >= 0 && i <= 2) {
-                row[0][i] = input.charAt(i);
-            } else if (i >= 3 && i <= 5) {
-                row[1][i - 3] = input.charAt(i);
-            } else {
-                row[2][i - 6] = input.charAt(i);
+        for (int i = 0; i < row.length; i++) {
+            for (int j = 0; j < row[i].length; j++) {
+                row[i][j] = ' ';
             }
         }
 
         printFullField(row);
-        
+
+        while (res.isEmpty()) {
+            if (!full()) {
+                turn('X');
+                res = state();
+                if (!full() && !res.isEmpty()) {
+                    turn('O');
+                    res = state();
+                }
+            }
+        }
+
+        System.out.println(res);
+    }
+
+    public static void turn(char i) {
         System.out.print("Enter the coordinates: ");
-        
-        boolean check = scanner.hasNextInt();
-        
+
         int coordX;
-        int coordY; 
-        
-        for(;;) {
-            if (!scanner.hasNextInt()) {
-                System.out.println("You should enter numbers!");
-                System.out.print("Enter the coordinates: ");
-                scanner.next();
-                continue;
-            }
+        int coordY;
 
-            coordX = scanner.nextInt();
-            coordY = scanner.nextInt();
-
-            if (coordX < 0 || coordY < 0 || coordX > 3 || coordY > 3) {
-                System.out.println("Coordinates should be from 1 to 3!");
-                System.out.print("Enter the coordinates: ");
-                coordX = scanner.nextInt();
-                coordY = scanner.nextInt();
-            } 
-            break;
-        }
-        
-
-        
-        int xPos = position(coordY);
-        int yPos = coordX - 1;
-
-        while (occupied(xPos, yPos, row)) {
-            System.out.println("This cell is occupied! Choose another one!");
+        while (!scanner.hasNextInt()) {
+            System.out.println("You should enter numbers!");
             System.out.print("Enter the coordinates: ");
-            coordX = scanner.nextInt();
-            coordY = scanner.nextInt();
-            xPos = position(coordY);
-            yPos = coordX - 1;
+            scanner.next();
+            continue;
         }
 
-        row[xPos][yPos] = 'X';
-        printFullField(row);
-        //state(row, input);
+        coordX = scanner.nextInt();
+        coordY = scanner.nextInt();
+
+        if (coordX < 0 || coordY < 0 || coordX > 3 || coordY > 3) {
+            System.out.println("Coordinates should be from 1 to 3!");
+            turn(i);
+        }  else {
+            int xPos = position(coordY);
+            int yPos = coordX - 1;
+            if (!(occupied(xPos, yPos, row))) {
+                row[xPos][yPos] = i;
+                printFullField(row);
+                state();
+            } else {
+                System.out.println("This cell is occupied! Choose another one!");
+                turn(i);
+            }
+        }
     }
 
     public static boolean occupied(int x, int y, char[][] row) {
@@ -115,7 +107,7 @@ public class Main {
         }
         return false;
     }
-    
+
     public static boolean checkOneColumn(char[][] row, char a) {
         for (int i = 0; i < row.length; i++) {
             if (row[0][i] == row[1][i] && row[1][i] == row[2][i] && row[2][i] == a) {
@@ -134,10 +126,10 @@ public class Main {
             return true;
         } else if (row[0][2] == a && row[1][1] == a && row[2][0] == a) {
             return true;
-        } 
-        return false;       
+        }
+        return false;
     }
-    
+
     public static boolean countChar(String input) {
         boolean countRes = true;
         int o = 0;
@@ -159,22 +151,29 @@ public class Main {
         return countRes;
     }
 
-    public static void state(char[][] row, String input) {
+    public static boolean full() {
+        for (int i = 0; i < row.length; i++) {
+            for (int j = 0; j < row[i].length; j++) {
+                if (row[i][j] == ' ') {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    public static String state() {
         boolean x = check(row, 'X');
         boolean o = check(row, 'O');
-        
-        boolean empty = input.contains(" ");
-        
-        if (!countChar(input) || x == true && o == true) {
-            System.out.println("Impossible");
-        } else if (x == true && o == false) {
-            System.out.println("X wins");
+
+        if (x == true && o == false) {
+            return "X wins";
         } else if (x == false && o == true) {
-            System.out.println("O wins");
-        } else if (empty && x == false && o == false) {
-            System.out.println("Game not finished");
-        } else if (!empty && x == false && o == false) {
-            System.out.println("Draw");
+            return "O wins";
+        } else if (x == true && o == true) {
+            return "Draw";
+        } else {
+            return "";
         }
     }
 }
